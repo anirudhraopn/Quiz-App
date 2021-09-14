@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Question extends StatelessWidget {
   //const Question({Key? key}) : super(key: key);
@@ -14,6 +15,8 @@ class Question extends StatelessWidget {
         style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
+          fontFamily: GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic)
+              .fontFamily,
         ),
         textAlign: TextAlign.center,
       ),

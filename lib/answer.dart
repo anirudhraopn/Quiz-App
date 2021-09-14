@@ -16,11 +16,16 @@ class Answer extends StatelessWidget {
       child: Container(
         height: 50,
         margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
-        child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.yellow[100]),
-            foregroundColor: MaterialStateProperty.all(Colors.black),
-          ),
+        child: RaisedButton(
+          color: Theme.of(context).accentColor,
+          // style: ButtonStyle(
+          //   backgroundColor:
+          //       MaterialStateProperty.all(Theme.of(context).accentColor),
+          //   foregroundColor: MaterialStateProperty.all(Colors.black),
+          //   elevation: MaterialStateProperty.all(5),
+          //   enableFeedback: true,
+
+          // ),
           onPressed: () {
             buttonHandler();
           },

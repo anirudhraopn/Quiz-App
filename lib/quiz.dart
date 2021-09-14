@@ -17,23 +17,25 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Question(questions[questionIndex]['questionText'] as String),
-        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
-            .map(
-          (answer) {
-            return Answer(
-              () {
-                handler(
-                  answer['score'] as int,
-                );
-              },
-              answer['ansText'] as String,
-            );
-          },
-        ).toList()
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Question(questions[questionIndex]['questionText'] as String),
+          ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
+              .map(
+            (answer) {
+              return Answer(
+                () {
+                  handler(
+                    answer['score'] as int,
+                  );
+                },
+                answer['ansText'] as String,
+              );
+            },
+          ).toList()
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 //import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './quiz.dart';
 import './results.dart';
@@ -15,6 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyHome(),
       title: 'Quiz',
+      // theme: ThemeData(
+      //   primarySwatch: Colors.deepOrange,
+      //   fontFamily:
+      //       GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic).toString(),
+      // ),
     );
   }
 }
@@ -113,7 +119,8 @@ class _MyAppState extends State<MyHome> {
       ],
     },
     {
-      'questionText': '"Omae wa mo shindairu" means ? ',
+      'questionText':
+          '"Omae wa mo shindairu" means zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz? ',
       'answers': [
         {
           'ansText': 'You are already dead!',
@@ -155,20 +162,34 @@ class _MyAppState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Quiz App',
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        accentColor: Colors.yellow[100],
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.deepOrange,
+        ),
+        scaffoldBackgroundColor: Colors.orange[100],
+        fontFamily:
+            GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic).fontFamily,
+      ),
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepOrange,
+          //backgroundColor: Theme.of(context).primaryColor,
           title: Text(
             'Quiz',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
+              fontFamily:
+                  GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic)
+                      .toString(),
             ),
           ),
           centerTitle: true,
         ),
-        backgroundColor: Colors.orange[100],
+        //backgroundColor: Theme.of(context).primaryColorDark,
         body: _index < _questions.length
             ? Quiz(
                 handler: _handler,
