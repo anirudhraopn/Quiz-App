@@ -8,25 +8,41 @@ import './results.dart';
 
 //import './question.dart';
 
-void main() => runApp(MyHome());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHome(),
-      title: 'Quiz',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.deepOrange,
-      //   fontFamily:
-      //       GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic).toString(),
-      // ),
+      debugShowCheckedModeBanner: false,
+      title: 'Quiz App',
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        accentColor: Colors.yellow[100],
+        //splashColor: Colors.red,
+        // appBarTheme: AppBarTheme(
+        //   backgroundColor: Colors.deepOrange,
+        //   // textTheme: TextTheme(
+        //   //   title: GoogleFonts.darkerGrotesque(fontWeight: FontWeight.bold),
+        //   // ),
+        // ),
+        // textTheme: TextTheme(title: GoogleFonts.acme()),
+        scaffoldBackgroundColor: Colors.orange[100],
+        fontFamily:
+            GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic).fontFamily,
+      ),
+      home: MyHome(
+        title: 'Quiz',
+      ),
     );
   }
 }
 
 class MyHome extends StatefulWidget {
   //const MyHome({ Key? key }) : super(key: key);
+  MyHome({@required this.title});
+
+  final String title;
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -119,8 +135,7 @@ class _MyAppState extends State<MyHome> {
       ],
     },
     {
-      'questionText':
-          '"Omae wa mo shindairu" means zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz? ',
+      'questionText': '"Omae wa mo shindairu" means ? ',
       'answers': [
         {
           'ansText': 'You are already dead!',
@@ -161,43 +176,27 @@ class _MyAppState extends State<MyHome> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Quiz App',
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        accentColor: Colors.yellow[100],
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.deepOrange,
-        ),
-        scaffoldBackgroundColor: Colors.orange[100],
-        fontFamily:
-            GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic).fontFamily,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          //backgroundColor: Theme.of(context).primaryColor,
-          title: Text(
-            'Quiz',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              fontFamily:
-                  GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic)
-                      .toString(),
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            fontFamily: GoogleFonts.raleway().fontFamily,
           ),
-          centerTitle: true,
         ),
-        //backgroundColor: Theme.of(context).primaryColorDark,
-        body: _index < _questions.length
-            ? Quiz(
-                handler: _handler,
-                questionIndex: _index,
-                questions: _questions,
-              )
-            : Results(_totalScore.toString(), _resetQuiz),
+        centerTitle: true,
       ),
+      // backgroundColor: Theme.of(context).primaryColorLight,
+      body: _index < _questions.length
+          ? Quiz(
+              handler: _handler,
+              questionIndex: _index,
+              questions: _questions,
+            )
+          : Results(_totalScore.toString(), _resetQuiz),
     );
   }
 }

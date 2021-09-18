@@ -15,8 +15,7 @@ class Question extends StatelessWidget {
         style: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold,
-          fontFamily: GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic)
-              .fontFamily,
+          fontFamily: GoogleFonts.raleway().fontFamily,
         ),
         textAlign: TextAlign.center,
       ),

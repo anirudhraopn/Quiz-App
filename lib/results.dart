@@ -23,7 +23,7 @@ class Results extends StatelessWidget {
             ),
           ),
           Text(
-            'Your score is $score / 5',
+            'Your score is $score/5',
             style: TextStyle(
               fontSize: 40,
               fontWeight: FontWeight.bold,
