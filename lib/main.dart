@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/quiz_home_page.dart';
 
 import './quiz.dart';
 import './results.dart';
@@ -31,9 +32,7 @@ class MyApp extends StatelessWidget {
         fontFamily:
             GoogleFonts.darkerGrotesque(fontStyle: FontStyle.italic).fontFamily,
       ),
-      home: MyHome(
-        title: 'Quiz',
-      ),
+      home: QuizHome(),
     );
   }
 }
@@ -45,10 +44,10 @@ class MyHome extends StatefulWidget {
   final String title;
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyHomeState createState() => _MyHomeState();
 }
 
-class _MyAppState extends State<MyHome> {
+class _MyHomeState extends State<MyHome> {
   final _questions = [
     {
       'questionText': 'Meme is pronounced as ?',
